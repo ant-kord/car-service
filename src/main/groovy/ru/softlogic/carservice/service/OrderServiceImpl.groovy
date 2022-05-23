@@ -16,7 +16,6 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
     private OrderRepository orderRepository;
 
-	@Transactional
 	@Override
 	public Page<Order> getOrders(Pageable pageable) {
         return orderRepository.findAll(pageable); 
@@ -24,7 +23,7 @@ public class OrderServiceImpl implements OrderService{
 
 	@Transactional
 	@Override
-	public Order add(Order order) {
+	public Order add(Order order){
 		return orderRepository.save(order);
 	}
 

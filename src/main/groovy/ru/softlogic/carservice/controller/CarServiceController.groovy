@@ -70,27 +70,5 @@ public class CarServiceController {
         return new ResponseEntity<Page<Car>>(carService.getCars(pageable), new HttpHeaders(), HttpStatus.OK); 
     }
     
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public Map<String, String> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-        Map<String, String> errors = new HashMap<>();
-        ex.getBindingResult().getAllErrors().forEach{error -> 
-            String fieldName = ((FieldError) error).getField();
-            String errorMessage = error.getDefaultMessage();
-            errors.put(fieldName, errorMessage);
-        };
-        return errors;
-    }
     
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
-    @ExceptionHandler(ConstraintViolationException.class)
-    public Map<String, String> handleConstraintViolationException(ConstraintViolationException ex) {
-        Map<String, String> errors = new HashMap<>();
-        ex.getConstraintViolations().forEach{error -> 
-            String fieldName = error.getPropertyPath().toString();
-            String errorMessage = error.getMessage();
-            errors.put(fieldName, errorMessage);
-        };
-        return errors;
-    }
 }
