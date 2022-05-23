@@ -63,7 +63,7 @@ class CarServiceApplicationTests {
 	void testAddOrder() throws Exception {
 
 		String orderJson = 
-		'{"car": {"brand": "Subaru", "model": "Tribeca"},"mechanic": {"firstName": "»‚‡Ì", "lastName": "»‚‡ÌÓ‚"}}';
+		'{"car": {"brand": "Subaru", "model": "Tribeca"},"mechanic": {"firstName": "–ò–≤–∞–Ω", "lastName": "–ò–≤–∞–Ω–æ–≤"}}';
 
 		this.mvc.perform(post("/api/v1/service/order/add").with(bearerToken(this.serviceScopeToken))
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).content(orderJson))
@@ -92,7 +92,7 @@ class CarServiceApplicationTests {
 	void testInvalidAddOrder() throws Exception {
 
 		String orderJson = 
-		'{"car": {"brand": "Subaru"},"mechanic": {"firstName": "»‚‡Ì", "lastName": "»‚‡ÌÓ‚"}}';
+		'{"car": {"brand": "Subaru"},"mechanic": {"firstName": "–ò–≤–∞–Ω", "lastName": "–ò–≤–∞–Ω–æ–≤"}}';
 
 		this.mvc.perform(post("/api/v1/service/order/add").with(bearerToken(this.serviceScopeToken))
 				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON).content(orderJson))
